@@ -1,0 +1,27 @@
+* {
+    font-family: Death World, Helvetica, Arial, sans-serif;
+    font-size: 2rem;
+    text-decoration: none;
+}
+body {
+    margin: auto;
+}
+@font-face {
+    font-family: 'Death World';
+    src: url('./assets/Death\ World.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+.App {
+    display: flex;
+    flex-flow: column wrap;
+    height: 100vh;
+}
+a {
+    color: #314927;
+}
+a:hover {
+    color: #60733b;
+}
