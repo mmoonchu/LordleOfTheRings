@@ -30,12 +30,24 @@ function App() {
     const data = await response.json();
     convertJSONToArray(data);
     speakingCharacters = [...new Set(speakingCharacters)];
+    return speakingCharacters
   }
-  collectSpeakingCharacters(movie1Url);
-  collectSpeakingCharacters(movie2Url);
-  collectSpeakingCharacters(movie3Url);
+  // collectSpeakingCharacters(movie1Url);
+  // collectSpeakingCharacters(movie2Url);
+  // collectSpeakingCharacters(movie3Url);
   // console.log(speakingCharacters)
-
+  const yeah = async() => {
+    const testresult = await collectSpeakingCharacters(movie1Url);
+    const response = await fetch(`https://the-one-api.dev/v2/character/${testresult[12]}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+      }
+    });
+    const data = await response.json();
+    console.log(data.docs[0].name)
+  }
+  yeah();
 
   const [lordleKey, setLordleKey] = useState(null);
 
