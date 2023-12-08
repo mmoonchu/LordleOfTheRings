@@ -15,7 +15,12 @@ function App() {
   const movie1Url = `https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c/quote`;
   const movie2Url = `https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5b/quote?limit=1100`;
   const movie3Url = `https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5d/quote`;
-  const getQuotes = async(url) => {
+
+  let speakingCharacters = [];
+  const convertJSONToArray = function(JSONData) {
+    speakingCharacters.push(...new Set(JSONData.docs.map(quote => quote.character)));
+  }
+  const collectSpeakingCharacters = async(url) => {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -23,12 +28,14 @@ function App() {
       }
     });
     const data = await response.json();
-    console.log(data);
-    return data;
+    convertJSONToArray(data);
+    speakingCharacters = [...new Set(speakingCharacters)];
   }
-  getQuotes(movie1Url);
-  getQuotes(movie2Url);
-  getQuotes(movie3Url);
+  collectSpeakingCharacters(movie1Url);
+  collectSpeakingCharacters(movie2Url);
+  collectSpeakingCharacters(movie3Url);
+  // console.log(speakingCharacters)
+
 
   const [lordleKey, setLordleKey] = useState(null);
 
