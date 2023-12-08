@@ -1,10 +1,11 @@
 import React from "react";
+import Input from "./Input/Input";
 
 function Game() {
 
   return (
     <div className="game-window">
-      game
+      <Input></Input>
     </div>
   )
 }
