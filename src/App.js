@@ -40,16 +40,20 @@ function App() {
 
     const keyCharacterID = speakingCharacters[generateRandomInt(speakingCharacters.length)];
     const keyCharacterData = (await fetchData(`https://the-one-api.dev/v2/character/${keyCharacterID}`)).docs[0];
+    const keyCharacterQuoteList = (await fetchData(`https://the-one-api.dev/v2/character/${keyCharacterID}/quote`)).docs;
+    const keyQuote = keyCharacterQuoteList[generateRandomInt(keyCharacterQuoteList.length)].dialog;
     const keyCharacter = {
       name: keyCharacterData.name,
       race: keyCharacterData.race,
-      realm: keyCharacterData.realm,
+      realm: keyCharacterData.realm !== '' ? keyCharacterData.realm : 'N/A',
       gender: keyCharacterData.gender,
-      height: keyCharacterData.height,
+      height: keyCharacterData.height !== '' ? keyCharacterData.height : 'N/A',
+      quote: keyQuote
       // death: keyCharacterData.death,
     }
     setLordleKey(keyCharacter)
     console.log(keyCharacter)
+    console.log(keyQuote)
   }
 
 
