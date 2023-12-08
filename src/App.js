@@ -8,11 +8,7 @@ import './style.css';
 function App() {
   let speakingCharacters = [];
   const apiKey = process.env.REACT_APP_KEY;
-
-  const createLordleKey = function() {
-
-  }
-
+  const [lordleKey, setLordleKey] = useState(null);
   // const moviesUrl = `https://the-one-api.dev/v2/movie`;
   const movie1Url = `https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c/quote`;
   const movie2Url = `https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5b/quote?limit=1100`;
@@ -37,12 +33,32 @@ function App() {
     speakingCharacters = [...new Set(speakingCharacters)];
     return speakingCharacters;
   }  
+  const createLordleKey = async() => {
+    function generateRandomInt(max) {
+      return Math.floor(Math.random() * max)
+    }
+
+    const keyCharacterID = speakingCharacters[generateRandomInt(speakingCharacters.length)];
+    const keyCharacterData = (await fetchData(`https://the-one-api.dev/v2/character/${keyCharacterID}`)).docs[0];
+    const keyCharacter = {
+      name: keyCharacterData.name,
+      race: keyCharacterData.race,
+      realm: keyCharacterData.realm,
+      gender: keyCharacterData.gender,
+      height: keyCharacterData.height,
+      // death: keyCharacterData.death,
+    }
+    setLordleKey(keyCharacter)
+    console.log(keyCharacter)
+  }
+
+
   useEffect(() => {
-     collectSpeakingCharacters(movie1Url);
+    (async function() {
+      await collectSpeakingCharacters(movie1Url);
+      createLordleKey();
+    })()
   }, []);
-
-  const [lordleKey, setLordleKey] = useState(null);
-
 
   return (
     <div className="App">
