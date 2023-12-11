@@ -4,7 +4,6 @@ import { Context } from '../../../App'
 function GuessResult() {
 
     const speakingCharacters = useContext(Context);
-    // console.log(speakingCharacters)
 
   return (
     <div>{speakingCharacters}</div>
