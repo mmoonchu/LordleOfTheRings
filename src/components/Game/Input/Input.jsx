@@ -1,10 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { characterListContext, lordleKeyContext } from '../../../App'
 import './Input.css'
+import { guessesContext } from '../Game';
 
-function Input() {
+function Input(props) {
     const speakingCharacters = useContext(characterListContext);
     const lordleKey = useContext(lordleKeyContext);
+    const [guesses, setGuesses] = useContext(guessesContext)
     const [inputValue, setInputValue] = useState('');
     const [userGuess, setUserGuess] = useState(null);
     const handleInputChange = (event) => {
@@ -16,12 +18,13 @@ function Input() {
         console.log(inputValue);
     }
     const checkUserGuess = function() {
-        if (userGuess === lordleKey.name) {
+        if (userGuess === lordleKey) {
             // player wins
             console.log('you win!')
         } else {
             handleIncorrectGuess(userGuess);
         }
+        props.onNewGuess(userGuess);
     }
     const handleIncorrectGuess = function(incorrectGuess) {
         // check each relevant property, determine correctness (red, yel, green)

@@ -4,9 +4,9 @@ import GuessResult from './GuessResult/GuessResult'
 const GuessesList = ({ GuessesListItems }) => {
     return (
         <div className='guesses-list'>
-            {guesses.map((guess) => (
+            {/* {guesses.map((guess) => (
                 <GuessResult/>
-            ))}
+            ))} */}
         </div>
     )
 }

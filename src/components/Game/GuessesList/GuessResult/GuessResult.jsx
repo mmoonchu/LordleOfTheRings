@@ -17,7 +17,7 @@ function GuessResult() {
 
   return (
     <div>
-        <GuessPropertyList guessProperties={incorrectGuess}/>
+        {/* <GuessPropertyList guessProperties={incorrectGuess}/> */}
     </div>
   )
 }
