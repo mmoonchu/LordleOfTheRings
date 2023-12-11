@@ -46,7 +46,7 @@ function App() {
     const data = await fetchData(`https://the-one-api.dev/v2/character`);
     setCharacterData(data);
     const arrayOfNames = speakingCharactersCodes.map((characterID) => {
-      const character = characterData.docs.find((element) => element._id == characterID);
+      const character = data.docs.find((element) => element._id == characterID);
       return character.name;
     });
     setSpeakingCharacters([...new Set(arrayOfNames)]);

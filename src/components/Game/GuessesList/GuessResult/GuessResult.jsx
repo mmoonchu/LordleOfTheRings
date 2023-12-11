@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Square from './Square/Square';
 import { characterDataContext, lordleKeyContext } from '../../../../App';
 
@@ -8,12 +8,15 @@ function GuessResult(props) {
     const lordleKey = useContext(lordleKeyContext);
     const characterData = useContext(characterDataContext)
 
-    // if (movieData.docs.some((object) => {
-    //   object.character == lordleKey.name
-    // })) {
-    //   console.log('idk')
-    // }
-    console.log(characterData)
+    const createSquare = function() {
+        if (characterData.docs.some((object) => object.character == lordleKey.name)) {
+          return 'a'
+        }
+    }
+    // console.log('cd:', characterData.docs)
+    // useEffect(() => {
+    //   createSquare();
+    // }, [characterData])
 
     const GuessPropertyList = ({ guessProperties }) => {
         return (
