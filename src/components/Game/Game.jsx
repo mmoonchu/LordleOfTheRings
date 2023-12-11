@@ -1,13 +1,13 @@
 import React from "react";
 import Input from "./Input/Input";
-import GuessResult from "./GuessResult/GuessResult";
+import GuessesList from "./GuessesList/GuessesList";
 
 function Game() {
 
   return (
     <div className="game-window">
-      <Input></Input>
-      <GuessResult></GuessResult>
+      <Input/>
+      <GuessesList/>
     </div>
   )
 }
