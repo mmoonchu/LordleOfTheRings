@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react'
-import { characterListContext } from '../../../App'
+import React, { useState, useContext, useEffect } from 'react'
+import { characterListContext, lordleKeyContext } from '../../../App'
 import './Input.css'
 
 function Input() {
-
     const speakingCharacters = useContext(characterListContext);
+    const lordleKey = useContext(lordleKeyContext);
     const [inputValue, setInputValue] = useState('');
     const [userGuess, setUserGuess] = useState(null);
     const handleInputChange = (event) => {
@@ -15,6 +15,17 @@ function Input() {
         setUserGuess(inputValue);
         console.log(inputValue);
     }
+    const checkUserGuess = function() {
+        if (userGuess === lordleKey.name) {
+            // player wins
+            console.log('you win!')
+        } else {
+            // handleIncorrectGuess(userGuess);
+        }
+    }
+    useEffect(() => {
+        checkUserGuess();
+    }, [userGuess])
     
   return (
     <form onSubmit={handleSubmit}>
