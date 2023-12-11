@@ -5,7 +5,8 @@ import About from "./pages/About/About";
 import Play from "./pages/Play/Play";
 import './style.css';
 
-export const Context = React.createContext();
+export const characterListContext = React.createContext();
+export const lordleKeyContext = React.createContext();
  
 function App() {
   const [speakingCharactersCodes, setSpeakingCharactersCodes] = useState([]);
@@ -41,7 +42,6 @@ function App() {
     return speakingCharactersCodes;
   }  
   const createCharacterList = async () => {
-    // 1. fetch character data
     const characterData = await fetchData(`https://the-one-api.dev/v2/character`);
     const arrayOfNames = speakingCharactersCodes.map((characterID) => {
       const character = characterData.docs.find((element) => element._id == characterID);
@@ -84,13 +84,15 @@ function App() {
 
   return (
     <div className="App">
-      <Context.Provider value={speakingCharacters}>
+      <lordleKeyContext.Provider value={lordleKey}>
+      <characterListContext.Provider value={speakingCharacters}>
         <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/Play' element={<Play/>}/>
           <Route path='/About' element={<About/>}/>
         </Routes>
-      </Context.Provider>
+      </characterListContext.Provider>
+      </lordleKeyContext.Provider>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react'
-import { Context } from '../../../App'
+import { characterListContext } from '../../../App'
+import './Input.css'
 
 function Input() {
 
-    const speakingCharacters = useContext(Context);
+    const speakingCharacters = useContext(characterListContext);
     
-
   return (
     <div>
         <input list='characterList' placeholder='Type character name...'/>
