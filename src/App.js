@@ -5,7 +5,7 @@ import About from "./pages/About/About";
 import Play from "./pages/Play/Play";
 import './style.css';
 
-export const characterListContext = React.createContext();
+export const characterNameListContext = React.createContext();
 export const lordleKeyContext = React.createContext();
  
 function App() {
@@ -85,13 +85,13 @@ function App() {
   return (
     <div className="App">
       <lordleKeyContext.Provider value={lordleKey}>
-      <characterListContext.Provider value={speakingCharacters}>
+      <characterNameListContext.Provider value={speakingCharacters}>
         <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/Play' element={<Play/>}/>
           <Route path='/About' element={<About/>}/>
         </Routes>
-      </characterListContext.Provider>
+      </characterNameListContext.Provider>
       </lordleKeyContext.Provider>
     </div>
   );

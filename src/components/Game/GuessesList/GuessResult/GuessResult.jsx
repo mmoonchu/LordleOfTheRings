@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Square from './Square/Square';
+// import { guessesContext } from '../../Game';
+import { lordleKeyContext } from '../../../../App';
 
-function GuessResult() {
+function GuessResult(props) {
     //class: 'square {closeness}'
     //text: 'propertykey'
+    // const [guesses, setGuesses] = useContext(guessesContext);
+    const lordleKey = useContext(lordleKeyContext);
 
     const GuessPropertyList = ({ guessProperties }) => {
         return (
@@ -18,7 +22,7 @@ function GuessResult() {
   return (
     <div>
         {/* <GuessPropertyList guessProperties={incorrectGuess}/> */}
-        <p>hello</p>
+        <p>{props.guess}</p>
     </div>
   )
 }

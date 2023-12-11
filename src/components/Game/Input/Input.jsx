@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { characterListContext, lordleKeyContext } from '../../../App'
+import { characterNameListContext, lordleKeyContext } from '../../../App'
 import './Input.css'
 import { guessesContext } from '../Game';
 
 function Input(props) {
-    const speakingCharacters = useContext(characterListContext);
+    const speakingCharacters = useContext(characterNameListContext);
     const lordleKey = useContext(lordleKeyContext);
     const [guesses, setGuesses] = useContext(guessesContext)
     const [inputValue, setInputValue] = useState('');

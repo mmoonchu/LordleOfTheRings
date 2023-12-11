@@ -17,8 +17,8 @@ function GuessesList({ GuessesListItems }) {
   const [guesses, setGuesses] = useContext(guessesContext)
     return (
         <div className='guesses-list'>
-            {guesses.map((guess) => (
-                <GuessResult/>
+            {guesses.map((guess, index) => (
+                <GuessResult key={index} guess={guess}/>
             ))}
         </div>
     )
