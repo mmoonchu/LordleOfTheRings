@@ -37,7 +37,7 @@ function App() {
 
     movieData = await fetchData(movieQuotesUrl);
     convertJSONToArray(movieData);
-    setSpeakingCharactersIDs([...new Set(speakingCharactersCodes)]);
+    setSpeakingCharactersCodes([...new Set(speakingCharactersCodes)]);
     return speakingCharactersCodes;
   }  
   const createCharacterList = async () => {
@@ -49,8 +49,8 @@ function App() {
       // 2.return charName
       return character.name;
     });
-    console.log(arrayOfNames);
-    // setSpeakingCharacters(arrayOfNames);
+    // console.log('arrOfNames:', arrayOfNames);
+    setSpeakingCharacters([...new Set(arrayOfNames)]);
     // console.log('sc:', speakingCharacters);
     return speakingCharacters;
   }
@@ -88,7 +88,7 @@ function App() {
 
   return (
     <div className="App">
-      <Context.Provider value={speakingCharactersCodes}>
+      <Context.Provider value={speakingCharacters}>
         <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/Play' element={<Play/>}/>

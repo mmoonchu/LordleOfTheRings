@@ -7,7 +7,14 @@ function Input() {
     
 
   return (
-    <input placeholder='Type character name...'></input>
+    <div>
+        <input list='characterList' placeholder='Type character name...'/>
+        <datalist id='characterList'>
+            {speakingCharacters.map((character, index) => (
+                <option key={index} value={character} />
+            ))}
+        </datalist>
+    </div>
   )
 }
 
