@@ -5,6 +5,7 @@ import About from "./pages/About/About";
 import Play from "./pages/Play/Play";
 import './style.css';
 
+export const characterDataContext = React.createContext();
 export const characterNameListContext = React.createContext();
 export const lordleKeyContext = React.createContext();
  
@@ -84,6 +85,7 @@ function App() {
 
   return (
     <div className="App">
+      <characterDataContext.Provider value={movieData}>
       <lordleKeyContext.Provider value={lordleKey}>
       <characterNameListContext.Provider value={speakingCharacters}>
         <Routes>
@@ -93,6 +95,7 @@ function App() {
         </Routes>
       </characterNameListContext.Provider>
       </lordleKeyContext.Provider>
+      </characterDataContext.Provider>
     </div>
   );
 }
