@@ -6,13 +6,14 @@ function GuessResult(props) {
     //class: 'square {closeness}'
     //text: 'propertykey'
     const lordleKey = useContext(lordleKeyContext);
-    const movieData = useContext(characterDataContext)
+    const characterData = useContext(characterDataContext)
 
-    if (movieData.docs.some((object) => {
-      object.character == lordleKey.name
-    })) {
-      console.log('idk')
-    }
+    // if (movieData.docs.some((object) => {
+    //   object.character == lordleKey.name
+    // })) {
+    //   console.log('idk')
+    // }
+    console.log(characterData)
 
     const GuessPropertyList = ({ guessProperties }) => {
         return (
