@@ -1,12 +1,14 @@
 import { Route, Routes, } from "react-router-dom";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Main from "./pages/Main/Main";
 import About from "./pages/About/About";
 import Play from "./pages/Play/Play";
 import './style.css';
 
+export const Context = React.createContext();
+ 
 function App() {
-  let speakingCharacters = [];
+  const [speakingCharacters, setSpeakingCharacters] = useState([]);
   const apiKey = process.env.REACT_APP_KEY;
   const [lordleKey, setLordleKey] = useState(null);
   // const moviesUrl = `https://the-one-api.dev/v2/movie`;
@@ -30,7 +32,7 @@ function App() {
     }
     const data = await fetchData(movieQuotesUrl);
     convertJSONToArray(data);
-    speakingCharacters = [...new Set(speakingCharacters)];
+    setSpeakingCharacters([...new Set(speakingCharacters)]);
     return speakingCharacters;
   }  
   const createLordleKey = async() => {
@@ -51,7 +53,7 @@ function App() {
       quote: keyQuote
       // death: keyCharacterData.death,
     }
-    setLordleKey(keyCharacter)
+    setLordleKey(keyCharacter);
     console.log(keyCharacter)
     console.log(keyQuote)
   }
@@ -66,11 +68,13 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
-        <Route path='/' element={<Main/>}/>
-        <Route path='/Play' element={<Play/>}/>
-        <Route path='/About' element={<About/>}/>
-      </Routes>
+      <Context.Provider value={speakingCharacters}>
+        <Routes>
+          <Route path='/' element={<Main/>}/>
+          <Route path='/Play' element={<Play/>}/>
+          <Route path='/About' element={<About/>}/>
+        </Routes>
+      </Context.Provider>
     </div>
   );
 }
