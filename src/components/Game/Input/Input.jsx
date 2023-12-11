@@ -20,7 +20,7 @@ function Input() {
             // player wins
             console.log('you win!')
         } else {
-            // handleIncorrectGuess(userGuess);
+            handleIncorrectGuess(userGuess);
         }
     }
     const handleIncorrectGuess = function(incorrectGuess) {

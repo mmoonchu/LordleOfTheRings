@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Square() {
+function Square(props) {
   return (
-    <div>Square</div>
+    <div className={props.classes}> {props.text} </div>
   )
 }
 
