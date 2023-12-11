@@ -44,14 +44,10 @@ function App() {
     // 1. fetch character data
     const characterData = await fetchData(`https://the-one-api.dev/v2/character`);
     const arrayOfNames = speakingCharactersCodes.map((characterID) => {
-      // 1. find charName in /character data that correlates to characterID
       const character = characterData.docs.find((element) => element._id == characterID);
-      // 2.return charName
       return character.name;
     });
-    // console.log('arrOfNames:', arrayOfNames);
     setSpeakingCharacters([...new Set(arrayOfNames)]);
-    // console.log('sc:', speakingCharacters);
     return speakingCharacters;
   }
   const createLordleKey = async() => {

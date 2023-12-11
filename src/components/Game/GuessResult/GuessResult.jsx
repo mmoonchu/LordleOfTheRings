@@ -1,12 +1,9 @@
-import React, { useState, useContext } from 'react'
-import { Context } from '../../../App'
+import React from 'react'
 
 function GuessResult() {
 
-    const speakingCharacters = useContext(Context);
-
   return (
-    <div>{speakingCharacters}</div>
+    <div>GuessResult</div>
   )
 }
 
