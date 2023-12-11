@@ -5,7 +5,7 @@ import About from "./pages/About/About";
 import Play from "./pages/Play/Play";
 import './style.css';
 
-export const movieDataContext = React.createContext();
+export const characterDataContext = React.createContext();
 export const characterNameListContext = React.createContext();
 export const lordleKeyContext = React.createContext();
  
@@ -13,7 +13,7 @@ function App() {
   const [speakingCharactersCodes, setSpeakingCharactersCodes] = useState([]);
   const [speakingCharactersIDs, setSpeakingCharactersIDs] = useState([]);
   const [speakingCharacters, setSpeakingCharacters] = useState([]);
-  const [movieData, setMovieData] = useState([]);
+  const [characterData, setCharacterData] = useState([]);
   const apiKey = process.env.REACT_APP_KEY;
   const [lordleKey, setLordleKey] = useState(null);
   // const moviesUrl = `https://the-one-api.dev/v2/movie`;
@@ -38,13 +38,13 @@ function App() {
     }
 
     const data = await fetchData(movieQuotesUrl);
-    setMovieData(data);
     convertJSONToArray(data);
     setSpeakingCharactersCodes([...new Set(speakingCharactersCodes)]);
     return speakingCharactersCodes;
   }  
   const createCharacterList = async () => {
-    const characterData = await fetchData(`https://the-one-api.dev/v2/character`);
+    const data = await fetchData(`https://the-one-api.dev/v2/character`);
+    setCharacterData(data);
     const arrayOfNames = speakingCharactersCodes.map((characterID) => {
       const character = characterData.docs.find((element) => element._id == characterID);
       return character.name;
@@ -86,7 +86,7 @@ function App() {
 
   return (
     <div className="App">
-      <movieDataContext.Provider value={movieData}>
+      <characterDataContext.Provider value={characterData}>
       <lordleKeyContext.Provider value={lordleKey}>
       <characterNameListContext.Provider value={speakingCharacters}>
         <Routes>
@@ -96,7 +96,7 @@ function App() {
         </Routes>
       </characterNameListContext.Provider>
       </lordleKeyContext.Provider>
-      </movieDataContext.Provider>
+      </characterDataContext.Provider>
     </div>
   );
 }

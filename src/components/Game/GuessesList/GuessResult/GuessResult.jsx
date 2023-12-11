@@ -1,20 +1,18 @@
 import React, { useContext } from 'react'
 import Square from './Square/Square';
-import { movieDataContext, lordleKeyContext } from '../../../../App';
+import { characterDataContext, lordleKeyContext } from '../../../../App';
 
 function GuessResult(props) {
     //class: 'square {closeness}'
     //text: 'propertykey'
     const lordleKey = useContext(lordleKeyContext);
-    const movieData = useContext(movieDataContext)
+    const movieData = useContext(characterDataContext)
 
-    // for (const property in lordleKey) {
-    //   if (movieData.docs.some((object) => {
-    //     console.log(object)
-    //   })) {console.log('idk')}
-    //   // lordleKey[property]
-    // }
-    console.log('mv:', movieData)
+    if (movieData.docs.some((object) => {
+      object.character == lordleKey.name
+    })) {
+      console.log('idk')
+    }
 
     const GuessPropertyList = ({ guessProperties }) => {
         return (
