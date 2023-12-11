@@ -9,7 +9,8 @@ function Game() {
   const [guesses, setGuesses] = useState([]);
 
   const addNewGuessListItem = (guess) => {
-    guesses.push(guess);
+    const newArray = [...guesses, guess];
+    setGuesses(newArray);
   }
 
   return (

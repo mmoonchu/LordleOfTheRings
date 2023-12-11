@@ -18,6 +18,7 @@ function GuessResult() {
   return (
     <div>
         {/* <GuessPropertyList guessProperties={incorrectGuess}/> */}
+        <p>hello</p>
     </div>
   )
 }
