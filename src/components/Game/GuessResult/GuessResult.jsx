@@ -5,15 +5,19 @@ function GuessResult() {
     //class: 'square {closeness}'
     //text: 'propertykey'
 
-    const GuessPropertyList = ({ properties }) => {
+    const GuessPropertyList = ({ guessProperties }) => {
         return (
-          <Square class='' text=''></Square>
+          <div className='rectangle'>
+            {guessProperties.map((guessProperty) => (
+                <Square class='' text=''/>
+            ))}
+          </div>
         );
       };
 
   return (
     <div>
-        <GuessPropertyList/>
+        <GuessPropertyList guessProperties={incorrectGuess}/>
     </div>
   )
 }
