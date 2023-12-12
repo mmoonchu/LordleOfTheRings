@@ -6,7 +6,7 @@ function GuessResult(props) {
   const lordleKey = useContext(lordleKeyContext);
   const characterData = useContext(characterDataContext);
   const [squares, setSquares] = useState([]); // each square will hold color & property of 'this' particular GuessResult
-  const currentGuessData = characterData.docs.find((object) => object.name == lordleKey.name);
+  const currentGuessData = characterData.docs.find((object) => object.name == props.guess);
 
   class Square {
     constructor(propertyName, color) {
