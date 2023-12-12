@@ -24,7 +24,11 @@ function GuessResult(props) {
   };
   console.log(currentCharacter)
 
-  // for (const propertyName in )
+  const newArray = [];
+  for (const propertyName in currentCharacter) {
+    newArray.push(new Square(currentCharacter[propertyName], 'red'))
+  }
+  console.log(newArray)
   
   // const nameSquare = new Square(currentGuessData.name, 'red');
   // const raceSquare = new Square(currentGuessData.race, 'red');
