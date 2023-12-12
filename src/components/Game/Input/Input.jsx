@@ -20,7 +20,7 @@ function Input(props) {
     const checkUserGuess = function() {
         if (userGuess === lordleKey.name) {
             // player wins
-            console.log('you win!')
+            console.log('you win!');
         } else {
             handleIncorrectGuess(userGuess);
         }
@@ -37,16 +37,16 @@ function Input(props) {
         checkUserGuess();
     }, [userGuess])
     
-  return (
-    <form onSubmit={handleSubmit}>
-        <input list='characterList' placeholder='Type character name...' value={inputValue} onChange={handleInputChange}/>
-        <datalist id='characterList'>
-            {speakingCharacters.map((character, index) => (
-                <option key={index} value={character} />
-            ))}
-        </datalist>
-    </form>
-  )
+    return (
+        <form onSubmit={handleSubmit}>
+            <input list='characterList' placeholder='Type character name...' value={inputValue} onChange={handleInputChange}/>
+            <datalist id='characterList'>
+                {speakingCharacters.map((character, index) => (
+                    <option key={index} value={character} />
+                ))}
+            </datalist>
+        </form>
+    )
 }
 
 export default Input
