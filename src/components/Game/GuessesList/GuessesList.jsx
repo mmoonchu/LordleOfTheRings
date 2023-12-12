@@ -23,7 +23,7 @@ function GuessesList(props) {
     console.log(guesses)
   }, ['guesses', guesses]);
 
-  if (!guesses[1]) {
+  if (!guesses[0]) {
     return <div>no guesses yet</div>;
   }
 
