@@ -52,6 +52,12 @@ input {
     min-width: 6rem;
 }
 
+.about {
+    font-family: Morris;
+}
+.h1 {
+    font-size: 3rem;
+}
 
 
 .property-titles, .guess-result {
