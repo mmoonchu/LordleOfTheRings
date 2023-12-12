@@ -8,7 +8,7 @@ function Game() {
 
   const [guesses, setGuesses] = useState([]);
 
-  const addNewGuessListItem = (guess) => {
+  const addNewIncorrectGuess = (guess) => {
     const newArray = [...guesses, guess];
     setGuesses(newArray);
   }
@@ -16,7 +16,7 @@ function Game() {
   return (
     <div className="game-window">
       <guessesContext.Provider value={[guesses, setGuesses]}>
-        <Input onNewGuess={addNewGuessListItem}/>
+        <Input onIncorrectGuess={addNewIncorrectGuess}/>
         <GuessesList/>
       </guessesContext.Provider>
     </div>

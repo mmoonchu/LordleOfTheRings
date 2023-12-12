@@ -18,15 +18,15 @@ function Input(props) {
         console.log(inputValue);
     }
     const checkUserGuess = function() {
-        if (userGuess === lordleKey) {
+        if (userGuess === lordleKey.name) {
             // player wins
             console.log('you win!')
         } else {
             handleIncorrectGuess(userGuess);
         }
-        props.onNewGuess(userGuess);
     }
     const handleIncorrectGuess = function(incorrectGuess) {
+        props.onIncorrectGuess(userGuess);
         // check each relevant property, determine correctness (red, yel, green)
         // create rectangle component for whole guess + pass properties as props for square components
             // create square component for each property (DOING THIS FIRST)

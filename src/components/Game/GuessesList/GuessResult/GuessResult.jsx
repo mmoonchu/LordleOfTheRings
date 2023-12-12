@@ -9,14 +9,14 @@ function GuessResult(props) {
     const characterData = useContext(characterDataContext)
 
     const createSquare = function() {
-        if (characterData.docs.some((object) => object.character == lordleKey.name)) {
-          return 'a'
-        }
+      if ([...characterData.docs].some((object) => object.character == lordleKey.name)) {
+        return 'a'
+      }
     }
     // console.log('cd:', characterData.docs)
-    // useEffect(() => {
-    //   createSquare();
-    // }, [characterData])
+    useEffect(() => {
+      createSquare();
+    }, [characterData])
 
     const GuessPropertyList = ({ guessProperties }) => {
         return (

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import GuessResult from './GuessResult/GuessResult'
 import { guessesContext } from '../Game'
+import { characterDataContext } from '../../../App'
 
 // const GuessesList = ({ GuessesListItems }) => {
 //   const [guesses, setGuesses] = useContext([guesses, setGuesses])
@@ -13,15 +14,16 @@ import { guessesContext } from '../Game'
 //     )
 // }
 
-function GuessesList({ GuessesListItems }) {
+function GuessesList(props) {
   const [guesses, setGuesses] = useContext(guessesContext)
-    return (
-        <div className='guesses-list'>
-            {guesses.map((guess, index) => (
-                <GuessResult key={index} guess={guess}/>
-            ))}
-        </div>
-    )
+
+  return (
+    <div className='guesses-list'>
+        {guesses.map((guess, index) => (
+            <GuessResult key={index} guess={guess}/>
+        ))}
+    </div>
+)
 }
 
 export default GuessesList

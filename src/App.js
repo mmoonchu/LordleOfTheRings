@@ -13,7 +13,7 @@ function App() {
   const [speakingCharactersCodes, setSpeakingCharactersCodes] = useState([]);
   const [speakingCharactersIDs, setSpeakingCharactersIDs] = useState([]);
   const [speakingCharacters, setSpeakingCharacters] = useState([]);
-  const [characterData, setCharacterData] = useState([]);
+  const [characterData, setCharacterData] = useState(null);
   const apiKey = process.env.REACT_APP_KEY;
   const [lordleKey, setLordleKey] = useState(null);
   // const moviesUrl = `https://the-one-api.dev/v2/movie`;
@@ -83,6 +83,10 @@ function App() {
       createLordleKey();
     })()
   }, []);
+
+  if (!lordleKey || !characterData) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="App">
