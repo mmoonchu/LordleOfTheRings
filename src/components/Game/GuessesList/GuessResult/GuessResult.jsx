@@ -22,11 +22,18 @@ function GuessResult(props) {
     gender: currentGuessData.gender,
     height: currentGuessData.height !== '' ? currentGuessData.height : 'N/A',
   };
-  console.log(currentCharacter)
 
   const newArray = [];
-  for (const propertyName in currentCharacter) {
-    newArray.push(new Square(currentCharacter[propertyName], 'red'))
+  for (const property in currentCharacter) {
+    const propertyValue = currentCharacter[property];
+    let propertyColor;
+
+    if (propertyValue === lordleKey[property]) {
+      propertyColor = 'green';
+    } else {
+      propertyColor = 'red';
+    }
+    newArray.push(new Square(propertyValue, propertyColor));
   }
   console.log(newArray)
   
