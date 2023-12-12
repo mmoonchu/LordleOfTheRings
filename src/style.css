@@ -32,6 +32,7 @@ a {
     background-color: #2c2413;
     color: #60733b;
     text-align: center;
+    margin: 15px;
     padding: 5px 8px;
 }
 a:hover {

@@ -10,7 +10,8 @@ function PropertyTitles() {
   useEffect(() => {
     const newArray = [];
     for (const property in lordleKey) {
-        newArray.push({ propertyName: property });
+        const newString = property.charAt(0).toUpperCase() + property.slice(1);
+        newArray.push({ propertyName: newString });
     }
     setSquares(newArray);
   }, [lordleKey])
