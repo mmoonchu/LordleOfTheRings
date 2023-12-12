@@ -8,16 +8,6 @@ function GuessResult(props) {
     const lordleKey = useContext(lordleKeyContext);
     const characterData = useContext(characterDataContext)
 
-    const GuessPropertyList = ({ guessProperties }) => {
-        return (
-          <div className='rectangle'>
-            {guessProperties.map((guessProperty) => (
-                <Square class='' text=''/>
-            ))}
-          </div>
-        );
-      };
-
   return (
     <div>
         {/* <GuessPropertyList guessProperties={incorrectGuess}/> */}
