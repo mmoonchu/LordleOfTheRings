@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import GuessResult from './GuessResult/GuessResult'
 import { guessesContext } from '../Game'
 import { characterDataContext } from '../../../App'
+import './GuessesList.css'
 
 // const GuessesList = ({ GuessesListItems }) => {
 //   const [guesses, setGuesses] = useContext([guesses, setGuesses])
