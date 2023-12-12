@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import Square from './Square/Square';
 import { characterDataContext, lordleKeyContext } from '../../../../App';
+import './GuessResult.css';
 
 function GuessResult(props) {
   const lordleKey = useContext(lordleKeyContext);
@@ -29,7 +30,9 @@ function GuessResult(props) {
       const propertyValue = currentCharacter[property];
       let propertyColor;
 
-      if (propertyValue === lordleKey[property]) {
+      if (property === 'name') {
+        propertyColor = 'gray';
+      } else if (propertyValue === lordleKey[property]) {
         propertyColor = 'green';
       } else {
         propertyColor = 'red';
@@ -42,8 +45,10 @@ function GuessResult(props) {
     createSquares();
   }, [])
 
+  const guessClass = `guess-result ${props.guess}`
+
   return (
-    <div className={props.guess}>
+    <div className={guessClass}>
         {squares.map((square, index) => (
             <Square key={index} text={square.propertyName} classes={square.classes}/>
         ))}

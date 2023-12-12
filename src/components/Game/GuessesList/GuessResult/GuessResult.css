@@ -1,0 +1,4 @@
+.guess-result {
+    display: flex;
+    flex-flow: row wrap;
+}
