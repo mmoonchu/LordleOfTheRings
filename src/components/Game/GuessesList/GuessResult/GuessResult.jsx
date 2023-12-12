@@ -41,15 +41,9 @@ function GuessResult(props) {
   useEffect(() => {
     createSquares();
   }, [])
-  
-  // const nameSquare = new Square(currentGuessData.name, 'red');
-  // const raceSquare = new Square(currentGuessData.race, 'red');
-  // const realmSquare = new Square(currentGuessData.realm, 'red');
-  // const genderSquare = new Square(currentGuessData.gender, 'red');
-  // const heightSquare = new Square(currentGuessData.height, 'red');
 
   return (
-    <div>
+    <div className={props.guess}>
         {squares.map((square, index) => (
             <Square key={index} text={square.propertyValue}/>
         ))}
