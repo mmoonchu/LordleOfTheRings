@@ -17,6 +17,10 @@ import { characterDataContext } from '../../../App'
 function GuessesList(props) {
   const [guesses, setGuesses] = useContext(guessesContext)
 
+  if (!guesses[1]) {
+    return <div>no guesses yet</div>;
+  }
+
   return (
     <div className='guesses-list'>
       {/* create a GuessResult (row) for each new guess */}
