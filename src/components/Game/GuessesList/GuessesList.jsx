@@ -24,7 +24,7 @@ function GuessesList(props) {
   return (
     <div className='guesses-list'>
       {/* create a GuessResult (row) for each new guess */}
-        {guesses.map((guess, index) => (
+        {guesses.filter((guess) => guess !== null).map((guess, index) => (
           // reminder: each "guess" is really just the name
             <GuessResult key={index} guess={guess}/>
         ))}
