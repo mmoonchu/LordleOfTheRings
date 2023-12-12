@@ -30,10 +30,10 @@ function GuessResult(props) {
       const propertyValue = currentCharacter[property];
       let propertyColor;
 
-      if (property === 'name') {
-        propertyColor = 'gray';
-      } else if (propertyValue === lordleKey[property]) {
+      if (propertyValue === lordleKey[property]) {
         propertyColor = 'green';
+      } else if (property === 'name') {
+        propertyColor = 'gray';
       } else {
         propertyColor = 'red';
       }
