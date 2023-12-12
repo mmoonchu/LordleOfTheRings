@@ -2,3 +2,9 @@
     display: flex;
     flex-flow: row wrap;
 }
+.red {
+    background-color: #da1919da;
+}
+.green {
+    background-color: #0ac02ee1;
+}
