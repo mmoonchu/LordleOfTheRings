@@ -44,3 +44,7 @@ a:hover {
 input {
     color: black;
 }
+
+.square {
+    width: 5.5rem;
+}

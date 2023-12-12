@@ -27,7 +27,7 @@ function AnswerTitles() {
   return (
     <div className='answer-titles'>
         {squares.map((square, index) => (
-            <Square key={index} text={square.propertyName} classes='answer-title'/>
+            <Square key={index} text={square.propertyName} classes='square answer-title'/>
         ))}
     </div>
   )
