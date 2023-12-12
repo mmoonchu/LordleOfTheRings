@@ -13,19 +13,19 @@ function Input(props) {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        checkGuess();
+        handleIncorrectGuess(inputValue);
         console.log(inputValue);
     }
-    const checkGuess = function() {
-        // if (guess === lordleKey.name) {
-        //     // player wins
-        //     console.log('you win!');
-        // } else {
-        //     // handleIncorrectGuess(guess);
-        // }
-        // move this back up to if statement's "else" once ready to properly implement correct guess handling
-        handleIncorrectGuess(inputValue);
-    }
+    // const checkGuess = function() {
+    //     if (guess === lordleKey.name) {
+    //         // player wins
+    //         console.log('you win!');
+    //     } else {
+    //         // handleIncorrectGuess(guess);
+    //     }
+    //     // move this back up to if statement's "else" once ready to properly implement correct guess handling
+    //     handleIncorrectGuess(inputValue);
+    // }
     const handleIncorrectGuess = function(incorrectGuess) {
         props.onIncorrectGuess(incorrectGuess);
         // REMOVE guessed name from available names (the dropdown)
