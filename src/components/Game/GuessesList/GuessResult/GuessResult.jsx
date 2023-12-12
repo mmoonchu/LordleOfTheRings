@@ -11,7 +11,7 @@ function GuessResult(props) {
   class SquareObject {
     constructor(propertyName, color) {
       this.propertyName = propertyName;
-      this.color = color;
+      this.classes = `square ${color}`;
     }
   }
 
@@ -45,7 +45,7 @@ function GuessResult(props) {
   return (
     <div className={props.guess}>
         {squares.map((square, index) => (
-            <Square key={index} text={square.propertyValue}/>
+            <Square key={index} text={square.propertyName} classes={square.classes}/>
         ))}
     </div>
   )
