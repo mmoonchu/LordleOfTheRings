@@ -27,7 +27,7 @@ function Input(props) {
     }
     const handleIncorrectGuess = function(incorrectGuess) {
         props.onIncorrectGuess(userGuess);
-        // check each relevant property, determine correctness (red, yel, green)
+        // check each relevant property, determine color (red, yel, green)
         // create rectangle component for whole guess + pass properties as props for square components
             // create square component for each property (DOING THIS FIRST)
         // REMOVE guessed name from available names (the dropdown)

@@ -3,11 +3,18 @@ import Square from './Square/Square';
 import { characterDataContext, lordleKeyContext } from '../../../../App';
 
 function GuessResult(props) {
-  //class: 'square {closeness}'
+  //class: 'square {color}'
   //text: 'propertykey'
   const lordleKey = useContext(lordleKeyContext);
   const characterData = useContext(characterDataContext);
-  const [squares, setSquares] = useState([]); // each square will hold closeness & property of 'this' particular GuessResult
+  const [squares, setSquares] = useState([]); // each square will hold color & property of 'this' particular GuessResult
+
+  class Square {
+    constructor(color, propertyName) {
+      this.color = color;
+      this.propertyName = propertyName;
+    }
+  }
 
   return (
     <div>
