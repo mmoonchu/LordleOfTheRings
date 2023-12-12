@@ -6,24 +6,14 @@ import './PropertyTitles.css'
 function PropertyTitles() {
     const lordleKey = useContext(lordleKeyContext);
     const [squares, setSquares] = useState([]);
-
-    class SquareObject {
-        constructor(propertyName) {
-            this.propertyName = propertyName;
-        }
-    }
-
-    const newArray = [];
-    const createSquares = function() {
-        for (const property in lordleKey) {
-            newArray.push(new SquareObject(property));
-        }
-        setSquares(newArray);
-    }
+    
   useEffect(() => {
-    console.log('creating titles!')
-    createSquares();
-  }, [null])
+    const newArray = [];
+    for (const property in lordleKey) {
+        newArray.push({ propertyName: property });
+    }
+    setSquares(newArray);
+  }, [lordleKey])
 
   return (
     <div className='property-titles'>
