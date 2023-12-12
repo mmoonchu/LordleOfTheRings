@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { lordleKeyContext } from '../../../../App';
 import Square from '../GuessResult/Square/Square';
-import './AnswerTitles.css'
+import './PropertyTitles.css'
 
-function AnswerTitles() {
+function PropertyTitles() {
     const lordleKey = useContext(lordleKeyContext);
     const [squares, setSquares] = useState([]);
 
@@ -25,12 +25,12 @@ function AnswerTitles() {
   }, [])
 
   return (
-    <div className='answer-titles'>
+    <div className='property-titles'>
         {squares.map((square, index) => (
-            <Square key={index} text={square.propertyName} classes='square answer-title'/>
+            <Square key={index} text={square.propertyName} classes='square property-title'/>
         ))}
     </div>
   )
 }
 
-export default AnswerTitles
+export default PropertyTitles

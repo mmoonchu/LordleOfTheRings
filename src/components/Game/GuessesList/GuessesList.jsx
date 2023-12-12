@@ -3,7 +3,7 @@ import GuessResult from './GuessResult/GuessResult'
 import { guessesContext } from '../Game'
 import { characterDataContext } from '../../../App'
 import './GuessesList.css'
-import AnswerTitles from './AnswerTitles/AnswerTitles'
+import PropertyTitles from './PropertyTitles/PropertyTitles'
 
 // const GuessesList = ({ GuessesListItems }) => {
 //   const [guesses, setGuesses] = useContext([guesses, setGuesses])
@@ -25,7 +25,7 @@ function GuessesList(props) {
 
   return (
     <div className='guesses-list'>
-      <AnswerTitles/>
+      <PropertyTitles/>
       {/* create a GuessResult (row) for each new guess */}
         {guesses.filter((guess) => guess !== null).map((guess, index) => (
           // reminder: each "guess" is really just the name
