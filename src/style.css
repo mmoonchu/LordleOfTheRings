@@ -47,5 +47,17 @@ input {
 }
 
 .square {
-    width: 5.5rem;
+    width: 10%;
+    min-width: 6rem;
+}
+
+
+
+.property-titles, .guess-result {
+    justify-content: space-evenly;
+}
+.square {
+    font-size: 1rem;
+    display: flex;
+    flex-flow: row wrap;
 }

@@ -1,4 +1,6 @@
 .guesses-list {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: space-evenly;
+    width: 100%;
 }

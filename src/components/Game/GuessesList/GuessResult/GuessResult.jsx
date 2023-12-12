@@ -17,6 +17,7 @@ function GuessResult(props) {
       realm: currentGuessData.realm !== '' ? currentGuessData.realm : 'N/A',
       gender: currentGuessData.gender,
       height: currentGuessData.height !== '' ? currentGuessData.height : 'N/A',
+      quote: ''
     };
 
     
@@ -27,7 +28,7 @@ function GuessResult(props) {
 
       if (propertyValue === lordleKey[property]) {
         propertyColor = 'green';
-      } else if (property === 'name') {
+      } else if (property === 'name' || property === 'quote') {
         propertyColor = 'gray';
       } else {
         propertyColor = 'red';
