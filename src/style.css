@@ -27,6 +27,9 @@ body {
 a {
     font-family: Morris, Helvetica, Arial, sans-serif;
     font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 3px #697e3f solid;
     border-radius: 10px;
     background-color: #2c2413;

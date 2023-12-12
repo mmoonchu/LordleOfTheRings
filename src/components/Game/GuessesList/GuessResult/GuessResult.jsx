@@ -33,7 +33,9 @@ function GuessResult(props) {
       } else {
         propertyColor = 'red';
       }
-      newArray.push({ propertyName: propertyValue, classes: `square ${propertyColor}` });
+      if (property !== 'quote') {
+        newArray.push({ propertyName: propertyValue, classes: `square ${propertyColor}` });
+      }
     }
 
     setSquares(newArray);
