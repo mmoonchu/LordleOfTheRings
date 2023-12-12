@@ -7,7 +7,6 @@ function GuessResult(props) {
   const characterData = useContext(characterDataContext);
   const [squares, setSquares] = useState([]); // each square will hold color & property of 'this' particular GuessResult
   const currentGuessData = characterData.docs.find((object) => object.name == lordleKey.name);
-  console.log(currentGuessData)
 
   class Square {
     constructor(propertyName, color) {
@@ -15,12 +14,23 @@ function GuessResult(props) {
       this.color = color;
     }
   }
+
+  const currentCharacter = {
+    name: currentGuessData.name,
+    race: currentGuessData.race,
+    realm: currentGuessData.realm !== '' ? currentGuessData.realm : 'N/A',
+    gender: currentGuessData.gender,
+    height: currentGuessData.height !== '' ? currentGuessData.height : 'N/A',
+  };
+  console.log(currentCharacter)
+
+  // for (const propertyName in )
   
-  // const nameSquare = new Square(characterName, red);
-  // const raceSquare = new Square(race, red);
-  // const realmSquare = new Square(realm, red);
-  // const genderSquare = new Square(gender, red);
-  // const heightSquare = new Square(height, red);
+  // const nameSquare = new Square(currentGuessData.name, 'red');
+  // const raceSquare = new Square(currentGuessData.race, 'red');
+  // const realmSquare = new Square(currentGuessData.realm, 'red');
+  // const genderSquare = new Square(currentGuessData.gender, 'red');
+  // const heightSquare = new Square(currentGuessData.height, 'red');
 
   return (
     <div>
