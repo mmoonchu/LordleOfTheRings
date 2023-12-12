@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import GuessResult from './GuessResult/GuessResult'
 import { guessesContext } from '../Game'
 import { characterDataContext } from '../../../App'
@@ -18,6 +18,10 @@ import PropertyTitles from './PropertyTitles/PropertyTitles'
 
 function GuessesList(props) {
   const [guesses, setGuesses] = useContext(guessesContext)
+
+  useEffect(() => {
+    console.log(guesses)
+  }, ['guesses', guesses]);
 
   if (!guesses[1]) {
     return <div>no guesses yet</div>;

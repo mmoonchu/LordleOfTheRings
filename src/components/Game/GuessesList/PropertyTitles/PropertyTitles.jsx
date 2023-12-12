@@ -21,8 +21,9 @@ function PropertyTitles() {
         setSquares(newArray);
     }
   useEffect(() => {
+    console.log('creating titles!')
     createSquares();
-  }, [])
+  }, [null])
 
   return (
     <div className='property-titles'>

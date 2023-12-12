@@ -8,36 +8,28 @@ function Input(props) {
     const lordleKey = useContext(lordleKeyContext);
     const [guesses, setGuesses] = useContext(guessesContext)
     const [inputValue, setInputValue] = useState('');
-    const [userGuess, setUserGuess] = useState(null);
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        setUserGuess(inputValue);
+        checkGuess();
         console.log(inputValue);
     }
-    const checkUserGuess = function() {
-        if (userGuess === lordleKey.name) {
-            // player wins
-            console.log('you win!');
-        } else {
-            // handleIncorrectGuess(userGuess);
-        }
+    const checkGuess = function() {
+        // if (guess === lordleKey.name) {
+        //     // player wins
+        //     console.log('you win!');
+        // } else {
+        //     // handleIncorrectGuess(guess);
+        // }
         // move this back up to if statement's "else" once ready to properly implement correct guess handling
-        handleIncorrectGuess(userGuess);
+        handleIncorrectGuess(inputValue);
     }
     const handleIncorrectGuess = function(incorrectGuess) {
-        props.onIncorrectGuess(userGuess);
-        // check each relevant property, determine color (red, yel, green)
-        // create rectangle component for whole guess + pass properties as props for square components
-            // create square component for each property (DOING THIS FIRST)
+        props.onIncorrectGuess(incorrectGuess);
         // REMOVE guessed name from available names (the dropdown)
     }
-
-    useEffect(() => {
-        checkUserGuess();
-    }, [userGuess])
     
     return (
         <form onSubmit={handleSubmit}>
