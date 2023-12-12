@@ -1,10 +1,14 @@
 * {
     font-family: Helvetica, Arial, sans-serif;
+    color: #fefefe;
     font-size: 1.6rem;
     text-decoration: none;
 }
 body {
     margin: auto;
+    background-image: url('https://i.pinimg.com/originals/a2/5b/22/a25b22e84144d268eda0259491e51c88.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 @font-face {
     font-family: 'Morris';
@@ -22,8 +26,21 @@ body {
 a {
     font-family: Morris, Helvetica, Arial, sans-serif;
     font-size: 2rem;
-    color: #314927;
+    border: 3px #697e3f solid;
+    border-radius: 10px;
+    background-color: #2c2413;
+    color: #60733b;
+    text-align: center;
+    padding: 5px 8px;
 }
 a:hover {
-    color: #60733b;
+    border: 3px #3a572d solid;
+    color: #314927;
+}
+.loading {
+    font-family: Morris, Helvetica, Arial, sans-serif;
+    font-size: 2rem;
+}
+input {
+    color: black;
 }

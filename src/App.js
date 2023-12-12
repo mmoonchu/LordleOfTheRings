@@ -85,7 +85,7 @@ function App() {
   }, []);
 
   if (!lordleKey || !characterData) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   return (

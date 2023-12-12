@@ -27,6 +27,7 @@ function GuessesList(props) {
       {/* create a GuessResult (row) for each new guess */}
         {guesses.filter((guess) => guess !== null).map((guess, index) => (
           // reminder: each "guess" is really just the name
+          
             <GuessResult key={index} guess={guess}/>
         ))}
     </div>
