@@ -1,6 +1,6 @@
 * {
-    font-family: Morris, Helvetica, Arial, sans-serif;
-    font-size: 2rem;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
     text-decoration: none;
 }
 body {
@@ -20,6 +20,8 @@ body {
     height: 100vh;
 }
 a {
+    font-family: Morris, Helvetica, Arial, sans-serif;
+    font-size: 2rem;
     color: #314927;
 }
 a:hover {
