@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Input from "./Input/Input";
 import GuessesList from "./GuessesList/GuessesList";
+import './Game.css';
 
 export const guessesContext = React.createContext();
 
