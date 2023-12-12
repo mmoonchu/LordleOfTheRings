@@ -24,6 +24,7 @@ function Input(props) {
         } else {
             // handleIncorrectGuess(userGuess);
         }
+        // move this back up to if statement's "else" once ready to properly implement correct guess handling
         handleIncorrectGuess(userGuess);
     }
     const handleIncorrectGuess = function(incorrectGuess) {
