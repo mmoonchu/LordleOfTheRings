@@ -8,7 +8,7 @@ function GuessResult(props) {
   const [squares, setSquares] = useState([]); // each square will hold color & property of 'this' particular GuessResult
   const currentGuessData = characterData.docs.find((object) => object.name == props.guess);
 
-  class Square {
+  class SquareObject {
     constructor(propertyName, color) {
       this.propertyName = propertyName;
       this.color = color;
@@ -24,18 +24,23 @@ function GuessResult(props) {
   };
 
   const newArray = [];
-  for (const property in currentCharacter) {
-    const propertyValue = currentCharacter[property];
-    let propertyColor;
+  const createSquares = function() {
+    for (const property in currentCharacter) {
+      const propertyValue = currentCharacter[property];
+      let propertyColor;
 
-    if (propertyValue === lordleKey[property]) {
-      propertyColor = 'green';
-    } else {
-      propertyColor = 'red';
+      if (propertyValue === lordleKey[property]) {
+        propertyColor = 'green';
+      } else {
+        propertyColor = 'red';
+      }
+      newArray.push(new SquareObject(propertyValue, propertyColor));
     }
-    newArray.push(new Square(propertyValue, propertyColor));
+    setSquares(newArray);
   }
-  console.log(newArray)
+  useEffect(() => {
+    createSquares();
+  }, [])
   
   // const nameSquare = new Square(currentGuessData.name, 'red');
   // const raceSquare = new Square(currentGuessData.race, 'red');
@@ -46,7 +51,7 @@ function GuessResult(props) {
   return (
     <div>
         {squares.map((square, index) => (
-            <Square/>
+            <Square key={index} text={square.propertyValue}/>
         ))}
     </div>
   )
