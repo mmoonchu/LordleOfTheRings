@@ -1,9 +1,12 @@
 .square {
+    width: 6rem;
+    height: 5.4rem;
     margin: 10px 0;
-    font-size: 1rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-size: .8rem;
+    line-height: 1rem;
 }
