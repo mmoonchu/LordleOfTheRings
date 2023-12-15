@@ -67,12 +67,3 @@ input {
 .property-titles, .guess-result {
     justify-content: space-evenly;
 }
-.square {
-    margin: 10px 0;
-    font-size: 1rem;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
