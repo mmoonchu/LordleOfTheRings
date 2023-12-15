@@ -1,12 +1,19 @@
 .square {
     width: 6rem;
-    height: 5.4rem;
     margin: 10px 0;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+.square:not(.gray, .property-title){
     font-size: .8rem;
     line-height: 1rem;
+}
+.square:not(.property-title) {
+    height: 5.4rem;
+}
+.gray {
+    font-size: 1.2rem;
 }
