@@ -10,11 +10,12 @@ function GuessResult(props) {
 
   useEffect(() => {
     const currentGuessData = characterData.docs.find((object) => object.name === props.guess);
+    const currentRealm = currentGuessData.realm.split(',').join(', ');
 
     const currentCharacter = {
       name: currentGuessData.name,
       race: currentGuessData.race,
-      realm: currentGuessData.realm !== '' ? currentGuessData.realm : 'N/A',
+      realm: currentGuessData.realm !== '' ? currentRealm : 'N/A',
       gender: currentGuessData.gender,
       height: currentGuessData.height !== '' ? currentGuessData.height : 'N/A',
       quote: ''

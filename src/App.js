@@ -61,10 +61,11 @@ function App() {
     const keyCharacterData = (await fetchData(`https://the-one-api.dev/v2/character/${keyCharacterID}`)).docs[0];
     const keyCharacterQuoteList = (await fetchData(`https://the-one-api.dev/v2/character/${keyCharacterID}/quote`)).docs;
     const keyQuote = keyCharacterQuoteList[generateRandomInt(keyCharacterQuoteList.length)].dialog;
+    const keyRealm = keyCharacterData.realm.split(',').join(', ');
     const keyCharacter = {
       name: keyCharacterData.name,
       race: keyCharacterData.race,
-      realm: keyCharacterData.realm !== '' ? keyCharacterData.realm : 'N/A',
+      realm: keyCharacterData.realm !== '' ? keyRealm : 'N/A',
       gender: keyCharacterData.gender,
       height: keyCharacterData.height !== '' ? keyCharacterData.height : 'N/A',
       quote: keyQuote
