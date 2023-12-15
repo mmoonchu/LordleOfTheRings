@@ -2,3 +2,10 @@
     display: flex;
     flex-flow: row wrap;
 }
+
+.property-title.square {
+    border-bottom: 2px solid white;
+    padding: .5rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
