@@ -20,12 +20,14 @@ function GuessResult(props) {
       height: currentGuessData.height !== '' ? currentGuessData.height : 'N/A',
       quote: ''
     };
+    console.log('key:', lordleKey)
 
     
     const newArray = [];
     for (const property in currentCharacter) {
       const propertyValue = currentCharacter[property];
       let propertyColor;
+      let heightArrow = '';
 
       if (propertyValue === lordleKey[property]) {
         propertyColor = 'green';
@@ -33,9 +35,22 @@ function GuessResult(props) {
         propertyColor = 'gray';
       } else {
         propertyColor = 'red';
+        if (property === 'height') {
+          let guessHeight = Number(propertyValue.split('m')[0]);
+          let keyHeight = Number((lordleKey[property].split('m')[0].slice(-1) === 'c' ? lordleKey[property].split('c')[0] : lordleKey[property].split('m')[0]));
+          if (guessHeight < keyHeight) {
+            heightArrow = 'up-arrow';
+          } else if (guessHeight > keyHeight) {
+            heightArrow = 'down-arrow';
+          } else if (guessHeight === keyHeight) {
+            return;
+          } else {
+            heightArrow = 'qmark-arrow';
+          }
+        }
       }
       if (property !== 'quote') {
-        newArray.push({ propertyName: propertyValue, classes: `square ${propertyColor}` });
+        newArray.push({ propertyName: propertyValue, classes: `square ${propertyColor} ${heightArrow}` });
       }
     }
 
