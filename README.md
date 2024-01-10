@@ -3,4 +3,6 @@
 
 Begin the game by guessing any character from the dropdown menu. This guess will provide you information about the character that can inform your next guess. Continue guessing until you find the secret character!
 
+[Click here to play!](https://lordleoftherings.netlify.app)
+
 *React / HTML / CSS / JS*
